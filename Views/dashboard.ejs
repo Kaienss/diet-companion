@@ -1,0 +1,38 @@
+<%- include('layout.ejs'); %>
+<div class="container">
+    <div class="row justify-content-center">
+        <h3>My name is <%= user.name %> </h3> &nbsp;
+
+
+    </div><div class="row justify-content-center">
+        <h3>my email is <%= user.email %> </h3> <br>
+
+    </div>
+    <div class="row justify-content-center">
+
+        <div>
+            <ul>
+                <% for(var i=0; i<foods.length; i++) { %>
+                    <li>
+                        <span><%= foods[i].name %></span>,<span><%= foods[i].type %></span>,<span><%= foods[i].calorie %> calories   </span>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <span>Total Calorie intake:<%= foods.reduce((prev,item)=>{ return item.calorie + prev},0) %> calories </span>
+
+    </div>
+</div>
+<br>
+<br>
+
+<div  class="row justify-content-around">
+    <a href="/search"><button type="submit" class="btn btn-primary btn-sm btn-inline login-button">Add food</button></a>
+</div>
+
+</body>
+
+</html>

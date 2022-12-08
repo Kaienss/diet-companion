@@ -1,0 +1,38 @@
+<%- include('layout.ejs'); %>
+<div class="container">
+    <div class="row justify-content-center">
+
+        <form class="form-horizontal" method="post" action="/search">
+
+                                
+            <div class="form-group">
+                <label for="name" class="cols-sm-2 control-label">Food name</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter food name" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="type" class="cols-sm-2 control-label">Food type(1=drink,2=food)</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="type" id="type" placeholder="Enter food type" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary btn-lg btn-block search-button">add</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+
+</html>
