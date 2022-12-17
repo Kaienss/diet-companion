@@ -46,8 +46,6 @@ const searchForFood = async (name) => {
   return result.data;
 };
 const searchView = (req, res) => {
-  console.log(req.headers.cookie);
-  console.log(cookieParser(req.headers.cookie, "id"));
   res.render("search", {});
 };
 
@@ -56,11 +54,16 @@ const searchFood = async (req, res) => {
   const id = cookieParser(req.headers.cookie, "id");
   if (!global.ObjectPool[name]) {
     const foodResult = await searchForFood(name);
-    console.log(foodResult.hits[0].fields);
     if (foodResult.hits.length > 0) {
       await createFood(foodResult.hits[0].fields, type, id);
+      global.ObjectPool[name] = {
+        foodRes: foodResult.hits[0].fields,
+        type: type,
+      };
     }
+    console.log("food does not exist in object pool");
   } else {
+    console.log("food does exist in object pool");
     await createFood(
       global.ObjectPool[name].foodRes,
       global.ObjectPool[name].type,

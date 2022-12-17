@@ -16,7 +16,6 @@ mongoose
   .then(async () => {
     console.log("database connected");
     let users = await User.find();
-    console.log(users);
   })
   .catch((err) => console.log(err));
 app.set("view engine", "ejs");
